@@ -4,23 +4,28 @@ import axios from 'axios';
 const initialData = {
     title: '',
     director: '',
-    metascore: '',
-    stars: '',
+    metascore: 0,
+    stars: ""
   };
 
 const UpdateMovie = (props) => {
  
+
     const [movie, setMovie] = useState(initialData);
 
+    console.log(movie)
     const { movies, match } = props;
 
     useEffect(() => {
+        console.log(movies, match)
         const id = match.params.id;
         const movieArr = movies.find(
                 movie => `${movie.id}` === id
             );
-        if (movieArr) 
+        if (movieArr) {
+            console.log(movieArr)
             setMovie(movieArr);
+        }
     }, [movies, match.params.id]);
 
     const changeHandler = ev => {
@@ -40,7 +45,7 @@ const UpdateMovie = (props) => {
             .then(res => {
                 console.log(res);
                 setMovie(initialData);
-                props.setMovies(res.data);
+                props.updateMovies(res.data);
                 props.history.push('/movies');
             })
             .catch(err => console.log(err.response));
@@ -55,7 +60,7 @@ const UpdateMovie = (props) => {
           name="title"
           onChange={changeHandler}
           placeholder="title"
-          value={movie.name}
+          value={movie.title}
         />
         <div className="baseline" />
 
@@ -69,7 +74,7 @@ const UpdateMovie = (props) => {
         <div className="baseline" />
 
         <input
-          type="text"
+          type="number"
           name="metascore"
           onChange={changeHandler}
           placeholder="metascore"
@@ -82,7 +87,7 @@ const UpdateMovie = (props) => {
           name="stars"
           onChange={changeHandler}
           placeholder="stars"
-          value={movie.stars}
+          value={movie.stars.toString()}
         />
         <div className="baseline" />
 
