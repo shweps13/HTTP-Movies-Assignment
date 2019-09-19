@@ -1,8 +1,13 @@
 import React from 'react';
 
+const initialData = {
+    name: '',
+    director: '',
+    metascore: '',
+    stars: '',
+  };
 
-
-const UpdateMovie = () => {
+const UpdateMovie = (props) => {
  
   return (
     <div>
