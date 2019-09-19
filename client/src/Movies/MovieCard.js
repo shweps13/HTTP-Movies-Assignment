@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const MovieCard = props => {
   const { title, director, metascore, stars } = props.movie;
@@ -18,7 +19,12 @@ const MovieCard = props => {
           {star}
         </div>
       ))}
+
+        <button>
+          <Link to="/update-movie/:id">Update movie</Link>
+        </button>
     </div>
+    
   );
 };
 
