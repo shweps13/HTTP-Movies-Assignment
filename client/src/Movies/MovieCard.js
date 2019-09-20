@@ -6,12 +6,10 @@ import axios from 'axios';
 const MovieCard = props => {
   const { title, director, metascore, stars, id } = props.movie;
 
-
-
-  const deleteMovie = (id) => {
+  const deleteMovie = () => {
     axios.delete(`http://localhost:5000/api/movies/${id}`)
     .then(res => 
-      console.log("Movie was deleted", res),
+      console.log(`Movie with ${id} was deleted`, res),
       props.setChange(!props.change)
     )
     .catch(err => console.log(err.response))
