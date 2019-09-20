@@ -2,7 +2,7 @@ import React, { Component, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
-import { withRouter } from 'react-router-dom'
+import { Card } from 'semantic-ui-react';
 export default class MovieList extends Component {
   constructor(props) {
     super(props);

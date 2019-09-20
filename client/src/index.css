@@ -75,3 +75,11 @@ body {
   color: red;
   text-align: center;
 }
+
+.ui .card {
+  width: 70% !important;
+}
+
+#root > div.movie-list > a > div > div > div.extra.content > div > a:nth-child(2) {
+  margin-left: 3% !important;
+}

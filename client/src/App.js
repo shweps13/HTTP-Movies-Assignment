@@ -4,7 +4,9 @@ import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
 import Movie from "./Movies/Movie";
 import UpdateMovie from "./Movies/UpdateMovie";
+
 import axios from 'axios';
+import 'semantic-ui-css/semantic.min.css'
 
 const App = () => {
   const [savedList, setSavedList] = useState([]);
