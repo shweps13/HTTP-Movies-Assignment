@@ -13,20 +13,17 @@ const UpdateMovie = (props) => {
 
     const [movie, setMovie] = useState(initialData);
 
-    console.log(movie)
+
     const { movies, match } = props;
 
+
     useEffect(() => {
-        console.log(movies, match)
-        const id = match.params.id;
-        const movieArr = movies.find(
-                movie => `${movie.id}` === id
-            );
-        if (movieArr) {
-            console.log(movieArr)
-            setMovie(movieArr);
-        }
-    }, [movies, match.params.id]);
+        axios.get(`http://localhost:5000/api/movies/${match.params.id}`)
+            .then(res => setMovie(res.data))
+            .catch(err => console.log(err.response))
+    }, [match.params.id])
+
+
 
     const changeHandler = ev => {
         ev.persist();
@@ -43,12 +40,12 @@ const UpdateMovie = (props) => {
         axios
             .put(`http://localhost:5000/api/movies/${match.params.id}`, movie)
             .then(res => {
-                console.log(res);
+                console.log("Responce of PUT", res);
                 setMovie(initialData);
                 props.updateMovies(res.data);
-                props.history.push('/movies');
+                props.history.push('/');
             })
-            .catch(err => console.log(err.response));
+            .catch(err => console.log(err));
         };
 
   return (

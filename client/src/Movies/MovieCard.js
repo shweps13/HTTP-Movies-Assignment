@@ -6,10 +6,6 @@ import { withRouter } from "react-router";
 const MovieCard = props => {
   const { title, director, metascore, stars, id, history } = props.movie;
 
-  console.log("History", history)
-
- 
-
   return (
     <div className="movie-card">
       <h2>{title}</h2>
