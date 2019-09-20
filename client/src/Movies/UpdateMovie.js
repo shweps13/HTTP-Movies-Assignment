@@ -1,5 +1,6 @@
 import React, { useState, useEffect }from 'react';
 import axios from 'axios';
+import { Container, Header, Button, Form  } from 'semantic-ui-react'
 
 const initialData = {
     title: '',
@@ -49,49 +50,54 @@ const UpdateMovie = (props) => {
         };
 
   return (
-    <div>
-      <h2>Update Movie</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="title"
-          onChange={changeHandler}
-          placeholder="title"
-          value={movie.title}
-        />
-        <div className="baseline" />
+    <Container text>
+        <Header as='h2'>Update Movie</Header>
+        <Form onSubmit={handleSubmit}>
+            <Form.Field>
+                <label>Movie title</label>
+                <input
+                    type="text"
+                    name="title"
+                    onChange={changeHandler}
+                    placeholder="title"
+                    value={movie.title}
+                />
+            </Form.Field>
+            <Form.Field>
+                <label>Director</label>
+                <input
+                    type="text"
+                    name="director"
+                    onChange={changeHandler}
+                    placeholder="director"
+                    value={movie.director}
+                />
+            </Form.Field>
+            <Form.Field>
+                <label>Director</label>
+                <input
+                    type="number"
+                    name="metascore"
+                    onChange={changeHandler}
+                    placeholder="metascore"
+                    value={movie.metascore}
+                />
+            </Form.Field>
+            <Form.Field>
+                <label>Metascore</label>
+                <input
+                    type="text"
+                    name="stars"
+                    onChange={changeHandler}
+                    placeholder="stars"
+                    value={movie.stars.toString()}
+                />
+            </Form.Field>
 
-        <input
-          type="text"
-          name="director"
-          onChange={changeHandler}
-          placeholder="director"
-          value={movie.director}
-        />
-        <div className="baseline" />
+            <Button type='submit'>Update</Button>
+        </Form>
 
-        <input
-          type="number"
-          name="metascore"
-          onChange={changeHandler}
-          placeholder="metascore"
-          value={movie.metascore}
-        />
-        <div className="baseline" />
-
-        <input
-          type="string"
-          name="stars"
-          onChange={changeHandler}
-          placeholder="stars"
-          value={movie.stars.toString()}
-        />
-        <div className="baseline" />
-
-
-        <button>Update</button>
-      </form>
-    </div>
+    </Container>
   );
 };
 
