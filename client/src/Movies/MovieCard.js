@@ -17,6 +17,29 @@ const MovieCard = props => {
 
   }
 
+  const starThings = (star) => {
+    
+    
+    if (Array.isArray(star)) {
+      return (
+        star.map(starThing => (
+          <div key={starThing} className="movie-star">
+            {starThing}
+          </div>
+        ))
+      )
+
+    } else {
+      return (
+        <div className="movie-star">
+          {star}
+        </div>
+      )
+    }
+
+  }
+
+
   return (
     <Card.Group centered>
     <Card>
@@ -25,11 +48,9 @@ const MovieCard = props => {
         <Card.Meta>Director: <em>{director}</em></Card.Meta>
         <Card.Description>
         <h3>Actors</h3>
-        {stars.map(star => (
-        <div key={star} className="movie-star">
-          {star}
-        </div>
-      ))}
+        
+        {starThings(stars)}
+
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
