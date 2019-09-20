@@ -74,7 +74,7 @@ const UpdateMovie = (props) => {
                 />
             </Form.Field>
             <Form.Field>
-                <label>Director</label>
+                <label>Metascore</label>
                 <input
                     type="number"
                     name="metascore"
@@ -84,7 +84,7 @@ const UpdateMovie = (props) => {
                 />
             </Form.Field>
             <Form.Field>
-                <label>Metascore</label>
+                <label>Actors</label>
                 <input
                     type="text"
                     name="stars"
