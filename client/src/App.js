@@ -9,7 +9,9 @@ import axios from 'axios';
 const App = () => {
   const [savedList, setSavedList] = useState([]);
   const [movies, setMovies] = useState([]);
-  const [change, setChange] = useState(false)
+  const [change, setChange] = useState(null)
+
+  console.log(change)
 
   const addToSavedList = movie => {
     setSavedList([...savedList, movie]);
@@ -20,7 +22,7 @@ const App = () => {
       .get('http://localhost:5000/api/movies')
       .then(res => setMovies(res.data))
       .catch(error => console.log(error));
-  }, [change]);
+  }, []);
 
   return (
     <>

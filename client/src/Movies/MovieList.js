@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
@@ -16,6 +16,15 @@ export default class MovieList extends Component {
       .get("http://localhost:5000/api/movies")
       .then(res => this.setState({ movies: res.data }))
       .catch(err => console.log(err.response));
+      
+  }
+
+  componentDidUpdate() {
+    axios
+    .get("http://localhost:5000/api/movies")
+    .then(res => this.setState({ movies: res.data }))
+    .catch(err => console.log(err.response));
+    
   }
 
   render() {

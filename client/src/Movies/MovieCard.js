@@ -10,7 +10,7 @@ const MovieCard = props => {
     axios.delete(`http://localhost:5000/api/movies/${id}`)
     .then(res => 
       console.log(`Movie with ${id} was deleted`, res),
-      props.setChange(!props.change)
+      props.setChange(id)
     )
     .catch(err => console.log(err.response))
 
@@ -38,7 +38,7 @@ const MovieCard = props => {
         </Link>
 
         <Link to={`/`} >
-        <button onClick={deleteMovie}>Delete</button>
+          <button onClick={deleteMovie}>Delete</button>
         </Link>
           
     </div>
